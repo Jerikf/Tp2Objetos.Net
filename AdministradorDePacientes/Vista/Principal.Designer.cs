@@ -41,13 +41,13 @@ namespace Vista
             this.iconPaciente = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnHome = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSuperior = new System.Windows.Forms.Panel();
             this.LabelTitleChildForm = new System.Windows.Forms.Label();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -276,16 +276,17 @@ namespace Vista
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // panel1
+            // panelSuperior
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
-            this.panel1.Controls.Add(this.LabelTitleChildForm);
-            this.panel1.Controls.Add(this.iconCurrentChildForm);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(180, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(704, 65);
-            this.panel1.TabIndex = 1;
+            this.panelSuperior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            this.panelSuperior.Controls.Add(this.LabelTitleChildForm);
+            this.panelSuperior.Controls.Add(this.iconCurrentChildForm);
+            this.panelSuperior.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSuperior.Location = new System.Drawing.Point(180, 0);
+            this.panelSuperior.Name = "panelSuperior";
+            this.panelSuperior.Size = new System.Drawing.Size(704, 65);
+            this.panelSuperior.TabIndex = 1;
+            this.panelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSuperior_MouseDown);
             // 
             // LabelTitleChildForm
             // 
@@ -317,15 +318,15 @@ namespace Vista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(884, 481);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelSuperior);
             this.Controls.Add(this.panelMenu);
             this.Name = "Principal";
             this.Text = "Principal";
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelSuperior.ResumeLayout(false);
+            this.panelSuperior.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.ResumeLayout(false);
 
@@ -336,7 +337,7 @@ namespace Vista
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox btnHome;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSuperior;
         private FontAwesome.Sharp.IconPictureBox iconCurrentChildForm;
         private System.Windows.Forms.Label LabelTitleChildForm;
         private FontAwesome.Sharp.IconButton iconPaciente;
