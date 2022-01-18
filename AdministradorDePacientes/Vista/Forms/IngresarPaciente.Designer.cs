@@ -261,7 +261,7 @@ namespace Vista.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textName);
             this.Name = "IngresarPaciente";
-            this.Text = "IngresarPaciente";
+            this.Text = "Ingresar Paciente";
             this.ResumeLayout(false);
             this.PerformLayout();
 

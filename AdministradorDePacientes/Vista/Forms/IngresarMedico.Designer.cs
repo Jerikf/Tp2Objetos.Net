@@ -244,7 +244,7 @@ namespace Vista.Forms
             this.comboBoxEspecialidad.Size = new System.Drawing.Size(176, 23);
             this.comboBoxEspecialidad.TabIndex = 30;
             // 
-            // AgregarMedico
+            // IngresarMedico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,8 +265,8 @@ namespace Vista.Forms
             this.Controls.Add(this.textName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textLastName);
-            this.Name = "AgregarMedico";
-            this.Text = "AgregarMedico";
+            this.Name = "IngresarMedico";
+            this.Text = "Ingresar Médico";
             this.ResumeLayout(false);
             this.PerformLayout();
 
