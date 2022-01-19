@@ -9,12 +9,14 @@ namespace Logica
         private string especialidad;
         private bool atendiendo;
         private int cantPacientesAtendidos;
+        private static int cantMedicos = 0;
 
         public Medico(string nombre, string apellido, string dni, int edad, string especialidad, bool atendiendo, int cantPacientesAtendidos) : base(nombre, apellido, dni, edad)
         {
             this.especialidad = especialidad;
             this.atendiendo = atendiendo;
             this.cantPacientesAtendidos = cantPacientesAtendidos;
+            cantMedicos++;
         }
 
         public string Especialidad { get => especialidad; set => especialidad = value; }
@@ -42,5 +44,7 @@ namespace Logica
         {
             return $"{base.Saludar()} Médico";
         }
+
+        public static int CantidadDeMedicos() => cantMedicos;
     }
 }
