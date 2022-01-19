@@ -39,5 +39,10 @@ namespace Logica
             return $"Hola mi nombre es  {this.nombre} y soy un ";
 
         }
+
+        public string toString()
+        {
+            return $" Nombre : {this.nombre} \n Apellido : {this.apellido} \n Dni : {this.dni} \n Edad : {this.edad} \n ";
+        }
     }
 }
