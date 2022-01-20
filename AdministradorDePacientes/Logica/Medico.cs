@@ -11,11 +11,11 @@ namespace Logica
         private int cantPacientesAtendidos;
         private static int cantMedicos = 0;
 
-        public Medico(string nombre, string apellido, string dni, int edad, string especialidad, bool atendiendo, int cantPacientesAtendidos) : base(nombre, apellido, dni, edad)
+        public Medico(string nombre, string apellido, string dni, int edad, string especialidad) : base(nombre, apellido, dni, edad)
         {
             this.especialidad = especialidad;
-            this.atendiendo = atendiendo;
-            this.cantPacientesAtendidos = cantPacientesAtendidos;
+            this.atendiendo = false;
+            this.cantPacientesAtendidos = 0;
             cantMedicos++;
         }
 
