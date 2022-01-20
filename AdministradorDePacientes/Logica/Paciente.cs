@@ -25,6 +25,7 @@ namespace Logica
         public override bool Equals(object obj)
         {
             return obj is Paciente paciente &&
+                   Nombre == paciente.Nombre &&
                    Dni == paciente.Dni;
         }
 
