@@ -29,6 +29,11 @@ namespace Logica
                    Dni == paciente.Dni;
         }
 
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Nombre, Dni);
+        }
+
         public override void miInfo()
         {
             Console.WriteLine(base.toString() + $"Número de llegada : {this.numeroDeLlegada} \n Obra social : {tipo}");

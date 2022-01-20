@@ -46,5 +46,10 @@ namespace Logica
         }
 
         public static int CantidadDeMedicos() => cantMedicos;
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Dni, Especialidad);
+        }
     }
 }
