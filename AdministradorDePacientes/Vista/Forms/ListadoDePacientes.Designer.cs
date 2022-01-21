@@ -29,6 +29,8 @@ namespace Vista.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListadoPacientes = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoPacientes)).BeginInit();
             this.SuspendLayout();
@@ -37,10 +39,29 @@ namespace Vista.Forms
             // 
             this.dgvListadoPacientes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvListadoPacientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListadoPacientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListadoPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListadoPacientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListadoPacientes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(30)))), ((int)(((byte)(62)))));
             this.dgvListadoPacientes.Location = new System.Drawing.Point(12, 24);
             this.dgvListadoPacientes.Name = "dgvListadoPacientes";
+            this.dgvListadoPacientes.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dgvListadoPacientes.RowTemplate.Height = 25;
+            this.dgvListadoPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListadoPacientes.Size = new System.Drawing.Size(660, 369);
             this.dgvListadoPacientes.TabIndex = 0;
             // 
@@ -55,6 +76,7 @@ namespace Vista.Forms
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Name = "ListadoDePacientes";
             this.Text = "Listado De Pacientes";
+            this.Load += new System.EventHandler(this.ListadoDePacientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoPacientes)).EndInit();
             this.ResumeLayout(false);
 
