@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,17 @@ namespace Vista.Forms
 {
     public partial class ListadoDePacientes : Form
     {
-        public ListadoDePacientes()
+        private Clinica clinica;
+        public ListadoDePacientes(Clinica clinica)
         {
             InitializeComponent();
+            this.clinica = clinica;
+
+        }
+
+        private void ListadoDePacientes_Load(object sender, EventArgs e)
+        {
+            this.dgvListadoPacientes.DataSource = clinica.ObtenerPacientes();
         }
     }
 }
