@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace Vista.Forms
 {
     public partial class IngresarPaciente : Form
     {
-        public IngresarPaciente()
+        private Clinica clinica;
+        public IngresarPaciente(Clinica clinica)
         {
             InitializeComponent();
+            this.clinica = clinica;
+
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace Vista.Forms
 {
     public partial class AsignarMedico : Form
     {
-        public AsignarMedico()
+        private Clinica clinica;
+        public AsignarMedico(Clinica clinica)
         {
             InitializeComponent();
+            this.clinica = clinica;
         }
     }
 }
