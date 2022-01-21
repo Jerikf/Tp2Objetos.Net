@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using Logica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Forms;
 
 namespace Vista
 {
@@ -16,6 +18,8 @@ namespace Vista
     {
         private IconButton currentBtn;
         private Panel leftBorderBtn;
+        private Form currentChildForm;
+        private Clinica clinica;
         public Principal()
         {
             InitializeComponent();
@@ -27,6 +31,9 @@ namespace Vista
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            //Instancio clinica
+            clinica = new Clinica();
         }
 
         private struct RGBColors
@@ -61,43 +68,6 @@ namespace Vista
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
 
-                //actual hijo del form
-                // TODO --> Modificar el panel menu por IconChar en vez de btns, así me ahorraría todos los if.
-                /*
-                if(currentBtn.Text == "Ingresar Paciente")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.UserInjured;
-                }else if(currentBtn.Text == "Ingresar Médico")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.UserMd;
-
-                }else if(currentBtn.Text == "Asignar Médico")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.NotesMedical;
-
-                }else if(currentBtn.Text == "Estado del Médico")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.UserNurse;
-
-                }else if (currentBtn.Text == "Listado de Pacientes")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.ClipboardList;
-
-                }else if (currentBtn.Text == "Listado de Medicos")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.ClipboardList;
-
-                }
-                else if (currentBtn.Text == "Finalizar Consulta")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.SignOutAlt;
-
-                }else if (currentBtn.Text == "Estadisticas")
-                {
-                    iconCurrentChildForm.IconChar = IconChar.ChartBar;
-
-                }*/
-
                 iconCurrentChildForm.IconChar = ((IconButton)senderBtn).IconChar;
                 iconCurrentChildForm.IconColor = color;
             }
@@ -115,55 +85,32 @@ namespace Vista
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
+        private void OpenchildForm(Form childForm)
+        {
+            if(currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            LabelTitleChildForm.Text = childForm.Text;
+        }
 
         private void panelLogo_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void btnPaciente_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color1);
-
-        }
-
-        private void btnMedico_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color2);
-        }
-
-        private void btnAsignarMedico_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color3);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color4);
-        }
-
-        private void btnListadoPacientes_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color5);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color6);
-        }
-
-        private void btnFinalizarConsulta_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color7);
-        }
-
-        private void btnEstadistica_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color8);
-        }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            currentChildForm.Close();
             Reset();
         }
 
@@ -185,31 +132,37 @@ namespace Vista
         private void iconPaciente_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenchildForm(new IngresarPaciente(this.clinica));
         }
 
         private void iconMedico_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
+            OpenchildForm(new IngresarMedico(this.clinica));
         }
 
         private void iconAsignarMedico_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenchildForm(new AsignarMedico(this.clinica));
         }
 
         private void iconEstadoMedico_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenchildForm(new EstadoDelMedico(this.clinica));
         }
 
         private void iconListPacientes_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenchildForm(new ListadoDePacientes(this.clinica));
         }
 
         private void iconListMedicos_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            OpenchildForm(new ListadoDeMedicos(this.clinica));
         }
 
         private void iconEstadisticas_Click(object sender, EventArgs e)
@@ -232,6 +185,16 @@ namespace Vista
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void BtnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
