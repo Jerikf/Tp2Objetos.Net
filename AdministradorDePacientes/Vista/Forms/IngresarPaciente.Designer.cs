@@ -29,6 +29,7 @@ namespace Vista.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textLastName = new System.Windows.Forms.TextBox();
@@ -42,6 +43,16 @@ namespace Vista.Forms
             this.comboBoxObraSocial = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // textName
@@ -54,6 +65,7 @@ namespace Vista.Forms
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(176, 16);
             this.textName.TabIndex = 1;
+            this.textName.Validating += new System.ComponentModel.CancelEventHandler(this.textName_Validating);
             // 
             // label2
             // 
@@ -77,6 +89,7 @@ namespace Vista.Forms
             this.textLastName.Name = "textLastName";
             this.textLastName.Size = new System.Drawing.Size(176, 16);
             this.textLastName.TabIndex = 6;
+            this.textLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textLastName_Validating);
             // 
             // textAge
             // 
@@ -88,6 +101,7 @@ namespace Vista.Forms
             this.textAge.Name = "textAge";
             this.textAge.Size = new System.Drawing.Size(176, 16);
             this.textAge.TabIndex = 8;
+            this.textAge.Validating += new System.ComponentModel.CancelEventHandler(this.textAge_Validating);
             // 
             // textDni
             // 
@@ -99,6 +113,7 @@ namespace Vista.Forms
             this.textDni.Name = "textDni";
             this.textDni.Size = new System.Drawing.Size(176, 16);
             this.textDni.TabIndex = 10;
+            this.textDni.Validating += new System.ComponentModel.CancelEventHandler(this.textDni_Validating);
             // 
             // label6
             // 
@@ -177,7 +192,9 @@ namespace Vista.Forms
             this.comboBoxObraSocial.Name = "comboBoxObraSocial";
             this.comboBoxObraSocial.Size = new System.Drawing.Size(176, 23);
             this.comboBoxObraSocial.TabIndex = 12;
+            this.comboBoxObraSocial.Text = "Seleccionar";
             this.comboBoxObraSocial.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxObraSocial.Validating += new System.ComponentModel.CancelEventHandler(this.comboBoxObraSocial_Validating);
             // 
             // btnAceptar
             // 
@@ -194,6 +211,7 @@ namespace Vista.Forms
             this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -210,6 +228,27 @@ namespace Vista.Forms
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
             // 
             // IngresarPaciente
             // 
@@ -232,6 +271,11 @@ namespace Vista.Forms
             this.Controls.Add(this.textName);
             this.Name = "IngresarPaciente";
             this.Text = "Ingresar Paciente";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +295,10 @@ namespace Vista.Forms
         private System.Windows.Forms.ComboBox comboBoxObraSocial;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
     }
 }
