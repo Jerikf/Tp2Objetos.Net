@@ -29,12 +29,17 @@ namespace Vista.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textDni = new System.Windows.Forms.TextBox();
             this.textName = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -86,6 +91,7 @@ namespace Vista.Forms
             this.textDni.Name = "textDni";
             this.textDni.Size = new System.Drawing.Size(176, 15);
             this.textDni.TabIndex = 25;
+            this.textDni.Validating += new System.ComponentModel.CancelEventHandler(this.textDni_Validating);
             // 
             // textName
             // 
@@ -97,6 +103,7 @@ namespace Vista.Forms
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(176, 15);
             this.textName.TabIndex = 24;
+            this.textName.Validating += new System.ComponentModel.CancelEventHandler(this.textName_Validating);
             // 
             // btnConsultar
             // 
@@ -113,6 +120,15 @@ namespace Vista.Forms
             this.btnConsultar.TabIndex = 29;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // EstadoDelMedico
             // 
@@ -130,6 +146,8 @@ namespace Vista.Forms
             this.ForeColor = System.Drawing.Color.Gainsboro;
             this.Name = "EstadoDelMedico";
             this.Text = "Estado Del Médico";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +161,7 @@ namespace Vista.Forms
         private System.Windows.Forms.TextBox textDni;
         private System.Windows.Forms.TextBox textName;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
     }
 }
