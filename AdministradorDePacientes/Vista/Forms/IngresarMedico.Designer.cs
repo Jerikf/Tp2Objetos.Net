@@ -72,6 +72,7 @@ namespace Vista.Forms
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -88,6 +89,7 @@ namespace Vista.Forms
             this.btnAceptar.TabIndex = 28;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // label1
             // 
@@ -163,6 +165,7 @@ namespace Vista.Forms
             this.textAge.Name = "textAge";
             this.textAge.Size = new System.Drawing.Size(176, 16);
             this.textAge.TabIndex = 23;
+            this.textAge.Validating += new System.ComponentModel.CancelEventHandler(this.textAge_Validating);
             // 
             // textDni
             // 
@@ -174,6 +177,7 @@ namespace Vista.Forms
             this.textDni.Name = "textDni";
             this.textDni.Size = new System.Drawing.Size(176, 16);
             this.textDni.TabIndex = 21;
+            this.textDni.Validating += new System.ComponentModel.CancelEventHandler(this.textDni_Validating);
             // 
             // textName
             // 
@@ -185,6 +189,7 @@ namespace Vista.Forms
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(176, 16);
             this.textName.TabIndex = 19;
+            this.textName.Validating += new System.ComponentModel.CancelEventHandler(this.textName_Validating);
             // 
             // label2
             // 
@@ -208,6 +213,7 @@ namespace Vista.Forms
             this.textLastName.Name = "textLastName";
             this.textLastName.Size = new System.Drawing.Size(176, 16);
             this.textLastName.TabIndex = 16;
+            this.textLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textLastName_Validating);
             // 
             // comboBoxEspecialidad
             // 
@@ -227,6 +233,8 @@ namespace Vista.Forms
             this.comboBoxEspecialidad.Name = "comboBoxEspecialidad";
             this.comboBoxEspecialidad.Size = new System.Drawing.Size(176, 23);
             this.comboBoxEspecialidad.TabIndex = 30;
+            this.comboBoxEspecialidad.Text = "Seleccionar";
+            this.comboBoxEspecialidad.Validating += new System.ComponentModel.CancelEventHandler(this.comboBoxEspecialidad_Validating);
             // 
             // errorProvider1
             // 
@@ -273,7 +281,6 @@ namespace Vista.Forms
             this.Controls.Add(this.textLastName);
             this.Name = "IngresarMedico";
             this.Text = "Ingresar Médico";
-            this.Load += new System.EventHandler(this.IngresarMedico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
