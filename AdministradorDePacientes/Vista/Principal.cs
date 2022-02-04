@@ -173,6 +173,7 @@ namespace Vista
         private void iconFinalizarConsulta_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color8);
+            OpenchildForm(new FinalizarConsulta(this.clinica));
         }
 
         //Drag Form
