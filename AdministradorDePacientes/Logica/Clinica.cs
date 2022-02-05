@@ -86,6 +86,19 @@ namespace Logica
             return pacientesVM;
         }
 
+        public List<GetMedicoStatisticsVM> ObtenerMedicosStatisticsVM()
+        {
+            List<GetMedicoStatisticsVM> medicosVM = new List<GetMedicoStatisticsVM>();
+            foreach (Medico medico in medicos)
+            {
+                GetMedicoStatisticsVM medicoVM = new GetMedicoStatisticsVM(medico.Nombre, medico.Especialidad, medico.CantPacientesAtendidos);
+                medicosVM.Add(medicoVM);
+            }
+
+            return medicosVM;
+
+        }
+
 
     }
 }
