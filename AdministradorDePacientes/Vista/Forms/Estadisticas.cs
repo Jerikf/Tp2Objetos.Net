@@ -50,7 +50,7 @@ namespace Vista.Forms
             }
 
             MedicoMayor.Text = (listMedicosVM.First().CantDePacientesAtendidos == 0 ? "NINGUNO" : listMedicosVM.First().Nombre);
-            MedicoMenor.Text = (listMedicosVM.Last().CantDePacientesAtendidos == 0 ? "NINGUNO" : listMedicosVM.Last().Nombre);
+            MedicoMenor.Text = listMedicosVM.Last().Nombre;
             EspecialidadMax.Text = (maxEspecialidad == 0 ? "NINGUNO" : especialidadMaxima);
 
 
