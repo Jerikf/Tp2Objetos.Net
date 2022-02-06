@@ -168,6 +168,7 @@ namespace Vista
         private void iconEstadisticas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color7);
+            OpenchildForm(new Estadisticas(this.clinica));
         }
 
         private void iconFinalizarConsulta_Click(object sender, EventArgs e)
