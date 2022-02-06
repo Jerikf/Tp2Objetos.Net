@@ -19,7 +19,9 @@ namespace Logica
                 new Medico("Juan", "Perez", "43678128", 33, "Hurologia"),
                 new Medico("Nestor", "lopez", "35497616", 45, "Traumatologia"),
                 new Medico("Alexander", "cruz", "34571279", 50, "Podologia"),
-                new Medico("Xiomara", "iwasa", "24879634", 30, "Oftamologia")
+                new Medico("Xiomara", "iwasa", "24879634", 30, "Oftamologia"),
+                new Medico("Agustin", "Pichot", "52179648", 62, "Cardiologia"),
+                new Medico("Katheryn", "Maldini", "95743461", 54, "Traumatologia")
             };
 
             this.consultas = new List<Consulta>();
@@ -40,11 +42,19 @@ namespace Logica
             Paciente paciente2 = new Paciente("Fernando", "Ustua", "95585453", 25, ObraSocial.NoTiene);
             Paciente paciente3 = new Paciente("Carlos", "Cisneros", "95347562", 28, ObraSocial.CoberturaBasica);
             Paciente paciente4 = new Paciente("Junior", "Gil", "93458736", 27, ObraSocial.CoberturaCompleta);
+            Paciente paciente5 = new Paciente("Alex", "Forlan", "54826791", 32, ObraSocial.NoTiene);
+            Paciente paciente6 = new Paciente("Anthony", "Palomino", "34612587", 21, ObraSocial.NoTiene);
+            Paciente paciente7 = new Paciente("Leo", "Cuervo", "71829346", 32, ObraSocial.CoberturaBasica);
+            Paciente paciente8 = new Paciente("Luis", "Chuz", "34152541", 29, ObraSocial.CoberturaCompleta);
 
             this.pacientes.Enqueue(paciente1);
             this.pacientes.Enqueue(paciente2);
             this.pacientes.Enqueue(paciente3);
             this.pacientes.Enqueue(paciente4);
+            this.pacientes.Enqueue(paciente5);
+            this.pacientes.Enqueue(paciente6);
+            this.pacientes.Enqueue(paciente7);
+            this.pacientes.Enqueue(paciente8);
         }
 
         public void AgregarPaciente(string nombre, string apellido, string dni, int edad, ObraSocial tipo)
