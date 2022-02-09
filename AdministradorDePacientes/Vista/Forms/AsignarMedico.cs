@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,18 +77,30 @@ namespace Vista.Forms
 
         private void AsignarMedico_Load(object sender, EventArgs e)
         {
-            ActualizarMedicos();
-            ActualizarPaciente();
+            if(clinica.Pacientes.Count != 0)
+            {
+                ActualizarMedicos();
+                ActualizarPaciente();
+            }
+            else
+            {
+                Thread t = new Thread(ShowMessageEmpty);
+                t.Start();
+            }
+            
 
         }
 
         private void ActualizarPaciente()
         {
             if (clinica.Pacientes.Count == 0)
+            {
+                Thread.Sleep(500);
                 MessageBox.Show("No hay pacientes para asignar", "Clinica", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //Agrego el siguiente paciente a la cola
+            }  //Agrego el siguiente paciente a la cola          
             else
                 comboBoxPaciente.Items.Add($"{clinica.Pacientes.Peek().Nombre} - {clinica.Pacientes.Peek().Dni}");
+            
         }
 
         private void ActualizarMedicos()
@@ -98,6 +111,12 @@ namespace Vista.Forms
                 //if (!medico.Atendiendo)
                 comboBoxMedicos.Items.Add($"{medico.Nombre} {medico.Apellido} - {medico.Especialidad}");
             }
+        }
+
+        private void ShowMessageEmpty()
+        {
+            Thread.Sleep(300);
+            MessageBox.Show("No hay Pacientes para Asingar", "Clinica", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
