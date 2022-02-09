@@ -109,6 +109,17 @@ namespace Logica
 
         }
 
+        public List<GetMedicoStateVM> ObtenerMedicosStateVM()
+        {
+            List<GetMedicoStateVM> medicosVM = new List<GetMedicoStateVM>();
+            foreach (var medico in medicos)
+            {
+                GetMedicoStateVM medicoVM = new GetMedicoStateVM(medico.Nombre, medico.Especialidad, medico.Atendiendo ? "SI" : "NO");
+                medicosVM.Add(medicoVM);
+            }
+            return medicosVM;
+        }
+
 
     }
 }
