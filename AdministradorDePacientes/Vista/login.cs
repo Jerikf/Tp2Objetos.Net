@@ -30,7 +30,7 @@ namespace Vista
 
         private void textUser_Enter(object sender, EventArgs e)
         {
-            if(textUser.Text == "USUARIO")
+            if(textUser.Text == "UserName")
             {
                 textUser.Text = "";
                 textUser.ForeColor = Color.LightGray;
@@ -41,14 +41,14 @@ namespace Vista
         {
             if(textUser.Text == "")
             {
-                textUser.Text = "USUARIO";
+                textUser.Text = "UserName";
                 textUser.ForeColor = Color.DimGray;
             }
         }
 
         private void textClave_Enter(object sender, EventArgs e)
         {
-            if(textClave.Text == "CONTRASEÑA")
+            if(textClave.Text == "Password")
             {
                 textClave.Text = "";
                 textClave.ForeColor = Color.LightGray;
@@ -60,7 +60,7 @@ namespace Vista
         {
             if(textClave.Text == "")
             {
-                textClave.Text = "CONTRASEÑA";
+                textClave.Text = "Password";
                 textClave.ForeColor = Color.DimGray;
                 textClave.UseSystemPasswordChar = false;
             }
@@ -86,6 +86,44 @@ namespace Vista
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (textUser.Text != "UserName")
+            {
+                if (textClave.Text != "Password")
+                {
+                    if (textUser.Text == "Admin" & textClave.Text == "123456") //HARCODEO --> aún no "sabemos" BD
+                    {
+                        Principal principal = new Principal();
+                        principal.Show();
+                        this.Hide();
+                    }
+                    else 
+                    {
+                        msgError("Incorrect username or password entered. \n  Please try again.");
+                        textClave.Clear();
+                        textClave.Text = "Password";
+                        textClave.ForeColor = Color.DimGray;
+                        textClave.UseSystemPasswordChar = false;
+                        textUser.Focus();
+                    }
+                        
+
+                }
+                else
+                    msgError("Please enter Password.");
+            }
+            else
+                msgError("Please enter UserName.");
+
+        }
+
+        private void msgError(string msg)
+        {
+            lblErrorMessageError.Text = "   " + msg;
+            lblErrorMessageError.Visible = true;
         }
     }
 }
