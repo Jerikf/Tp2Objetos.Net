@@ -38,6 +38,7 @@ namespace Vista
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.lblErrorMessageError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -75,7 +76,7 @@ namespace Vista
             this.textUser.Name = "textUser";
             this.textUser.Size = new System.Drawing.Size(384, 20);
             this.textUser.TabIndex = 2;
-            this.textUser.Text = "USUARIO";
+            this.textUser.Text = "UserName";
             this.textUser.Enter += new System.EventHandler(this.textUser_Enter);
             this.textUser.Leave += new System.EventHandler(this.textUser_Leave);
             // 
@@ -89,7 +90,7 @@ namespace Vista
             this.textClave.Name = "textClave";
             this.textClave.Size = new System.Drawing.Size(384, 20);
             this.textClave.TabIndex = 3;
-            this.textClave.Text = "CONTRASEÑA";
+            this.textClave.Text = "Password";
             this.textClave.Enter += new System.EventHandler(this.textClave_Enter);
             this.textClave.Leave += new System.EventHandler(this.textClave_Leave);
             // 
@@ -118,6 +119,7 @@ namespace Vista
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "ACCEDER";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnClose
             // 
@@ -143,12 +145,27 @@ namespace Vista
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
+            // lblErrorMessageError
+            // 
+            this.lblErrorMessageError.AutoSize = true;
+            this.lblErrorMessageError.Font = new System.Drawing.Font("MS Reference Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblErrorMessageError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblErrorMessageError.Image = ((System.Drawing.Image)(resources.GetObject("lblErrorMessageError.Image")));
+            this.lblErrorMessageError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblErrorMessageError.Location = new System.Drawing.Point(324, 205);
+            this.lblErrorMessageError.Name = "lblErrorMessageError";
+            this.lblErrorMessageError.Size = new System.Drawing.Size(98, 16);
+            this.lblErrorMessageError.TabIndex = 7;
+            this.lblErrorMessageError.Text = "Error Message";
+            this.lblErrorMessageError.Visible = false;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(780, 330);
+            this.Controls.Add(this.lblErrorMessageError);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
@@ -182,6 +199,7 @@ namespace Vista
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox btnMinimizar;
+        private System.Windows.Forms.Label lblErrorMessageError;
     }
 }
 
